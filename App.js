@@ -13,22 +13,29 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <SeekBar />
-        <ContactsList />
-      </View>
+        <View style={contactsStyles.container}>
+          <ContactsList />
+        </View>
+      </View >
     );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    overflow: 'scroll',
-    height: 40,
-    width: 200,
+    flex: 5,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: 24
   },
+});
+
+const contactsStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    overflow: 'scroll'
+  }
 });
 
 
