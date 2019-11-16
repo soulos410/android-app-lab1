@@ -1,6 +1,8 @@
 import { SearchBar } from 'react-native-elements';
+import React, { Component } from 'react';
+import { View, StyleSheet } from 'react-native';
 
-export default class SeekBar extends React.Component {
+export default class SeekBar extends Component {
     state = {
         search: '',
     };
@@ -13,11 +15,15 @@ export default class SeekBar extends React.Component {
         const { search } = this.state;
 
         return (
-            <SearchBar
-                placeholder="Type Here..."
-                onChangeText={this.updateSearch}
-                value={search}
-            />
+            <View style={flex = 2}>
+                <SearchBar
+                    placeholder="Type Here..."
+                    onChangeText={this.updateSearch}
+                    value={search}
+                    platform="android"
+                />
+            </View>
         );
     }
 }
+

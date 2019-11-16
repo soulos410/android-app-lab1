@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import ContactsList from "./src/Contacts/ContactsList";
-import SeekBar from './src/SeekBar';
+import SeekBar from './src/SeekBar/SeekBar';
 
 export default class App extends Component {
   constructor(props) {
@@ -21,14 +21,13 @@ export default class App extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    display: flex,
-    overflow: scroll,
-    height: '60%',
-    width: '80%',
+    flex: 1,
+    overflow: 'scroll',
+    height: 40,
+    width: 200,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-
   },
 });
 
