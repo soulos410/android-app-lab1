@@ -6,19 +6,12 @@ import * as Contacts from 'expo-contacts';
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { data: null };
+    this.state = { contacts: null };
   }
 
   async componentDidMount() {
     this.callPermissions();
-    const { data } = await Contacts.getContactsAsync({
-      fields: [Contacts.Fields]
-    });
-
-    if (data.length > 0) {
-      console.log(data);
-      this.setState({ data: data });
-    };
+    await this.getContacts();
   }
 
   callPermissions() {
@@ -27,31 +20,25 @@ export default class App extends Component {
 
   async getContacts() {
     const { data } = await Contacts.getContactsAsync({
-      fields: [Contacts.Fields],
+      fields: [Contacts.Fields]
     });
-
     if (data.length > 0) {
       this.setState({ contacts: data });
     }
   }
+
   renderList = data => {
-    return (
-      <ul>
-        {data.map(item => (
-          <li style={{ listStyle: "none" }} key={item.id}>ID: {item.id}, Name: {item.name}</li>
-        ))}
-      </ul>
-    )
+    return data.map(item => (
+        <Text key={item.id}>ID: {item.id}, Name: {item.name}</Text>
+    ));
   }
 
   render() {
-    const { contacts } = this.state;
+    const contacts = this.state.contacts !== null ? this.renderList(this.state.contacts) : null;
     return (
-      <View style={styles.container} >
-        <Text>
-          fuck u
-        </Text>
-      </View>
+        <View style={styles.container}>
+          {contacts}
+        </View>
     );
   }
 }
