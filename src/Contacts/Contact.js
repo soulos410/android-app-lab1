@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
+import {Button, Text, View} from 'react-native';
 
 export default class Contact extends Component {
     constructor(props) {
@@ -8,7 +8,10 @@ export default class Contact extends Component {
 
     render() {
         return (
-            <Text key={this.props.id}>ID: {this.props.id}, Name: {this.props.name}</Text>
+            <View>
+                <Text key={this.props.id}>ID: {this.props.id}, Name: {this.props.name}</Text>
+                <Button title={`Remove`} onPress={() => this.props.removeContact(this.props.id)}/>
+            </View>
         )
     }
 }
