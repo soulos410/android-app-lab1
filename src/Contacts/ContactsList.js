@@ -26,7 +26,7 @@ export default class ContactsList extends Component {
 
     getContactsArray(data) {
         return data.map(item => (
-            <Contact key={item.id} id={item.id} name={item.name}/>
+            <Contact key={item.id} id={item.id} name={item.name} />
         ));
     }
 
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        height: 20,
+        overflow: 'scroll',
+        marginTop: 20
     },
 });
-
-
